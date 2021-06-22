@@ -30,6 +30,8 @@ import { PythonOperationVariablesToObject } from '../../common/variables-to-obje
 import { PythonDeclarationBlock, transformPythonComment } from '../../common/declaration-block';
 import { PYTHON_SCALARS } from '../../common/scalars';
 
+console.log("LOOOOOOOOOOOOOOOOOOOOOOOOL");
+
 const flatMap = require('array.prototype.flatmap');
 
 export interface PythonPluginParsedConfig extends ParsedTypesConfig {
@@ -228,12 +230,12 @@ export class PyVisitor<
       const deprecationReason = this.getDeprecationReason(deprecationDirective);
       commentText = `${commentText ? `${commentText}\n` : ''}@deprecated ${deprecationReason}`;
     }
-    const comment = transformPythonComment(commentText, 0);
+    const comment = transformPythonComment(commentText, 1);
     return comment;
   }
 
   InputValueDefinition(node: InputValueDefinitionNode): string {
-    const comment = transformPythonComment(node.description, 0);
+    const comment = transformPythonComment(node.description, 1);
 
     return comment + indent(`${node.name}: ${node.type}`);
   }
@@ -245,7 +247,7 @@ export class PyVisitor<
           useTypesPrefix: false,
           transformUnderscore: true,
         });
-        const comment = transformPythonComment((enumOption.description as any) as string, 0);
+        const comment = transformPythonComment((enumOption.description as any) as string, 1);
         let enumValue: string | number = enumOption.name as any;
 
         if (

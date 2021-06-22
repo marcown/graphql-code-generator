@@ -7,7 +7,6 @@ import {
 import { StringValueNode } from 'graphql';
 
 export function transformPythonComment(comment: string | StringValueNode, indentLevel = 0): string {
-  return '';
   if (!comment || comment === '') {
     return '';
   }
