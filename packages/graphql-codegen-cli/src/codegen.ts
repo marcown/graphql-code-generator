@@ -175,7 +175,7 @@ export async function executeCodegen(input: CodegenContext | Types.Config): Prom
   });
 
   listr.add({
-    title: 'Generate outputs',
+    title: 'Generate outputs!!!!!',
     task: () => {
       return new Listr(
         Object.keys(generates).map<import('listr').ListrTask>(filename => {
