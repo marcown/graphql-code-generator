@@ -228,12 +228,12 @@ export class PyVisitor<
       const deprecationReason = this.getDeprecationReason(deprecationDirective);
       commentText = `${commentText ? `${commentText}\n` : ''}@deprecated ${deprecationReason}`;
     }
-    const comment = transformPythonComment(commentText, 1);
+    const comment = transformPythonComment(commentText, 0);
     return comment;
   }
 
   InputValueDefinition(node: InputValueDefinitionNode): string {
-    const comment = transformPythonComment(node.description, 1);
+    const comment = transformPythonComment(node.description, 0);
 
     return comment + indent(`${node.name}: ${node.type}`);
   }
@@ -245,7 +245,7 @@ export class PyVisitor<
           useTypesPrefix: false,
           transformUnderscore: true,
         });
-        const comment = transformPythonComment((enumOption.description as any) as string, 1);
+        const comment = transformPythonComment((enumOption.description as any) as string, 0);
         let enumValue: string | number = enumOption.name as any;
 
         if (
