@@ -3,6 +3,8 @@ import { indent } from '@graphql-codegen/visitor-plugin-common';
 import { pythonNativeValueTypes } from './scalars';
 import { ListTypeField, PythonFieldType } from './python-field-types';
 
+console.log("TEST MARKUS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
 export function buildPackageNameFromPath(path: string): string {
   const unixify = require('unixify');
   return unixify(path || '')
