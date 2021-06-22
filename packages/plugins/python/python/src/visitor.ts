@@ -100,7 +100,7 @@ export class PyVisitor<
       const scalarType = this._schema.getType(scalarName);
       const comment =
         scalarType && scalarType.astNode && scalarType.description
-          ? transformPythonComment(scalarType.description, 1)
+          ? transformPythonComment(scalarType.description, 0)
           : '';
 
       return comment + `Scalar${scalarName} = ${scalarValue}`;
