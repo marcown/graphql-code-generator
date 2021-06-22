@@ -4,6 +4,9 @@
  */
 export const csharpKeywords = [
   'abstract',
+  'and',
+  'or',
+  'not',
   'as',
   'base',
   'bool',
